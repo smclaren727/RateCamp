@@ -16,20 +16,20 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-Campground.create(
-  {
-    name: "Granite Hill",
-    image: "https://farm4.staticflickr.com/3514/3844623716_427ed81275.jpg",
-    description: "This is a granite hill. No bathrooms or running water. Bring supplies."
-  },
-  function(err, campground){
-    if(err){
-      console.log(err);
-    } else {
-      console.log("New campground: ");
-      console.log(campground);
-    }
-  });
+// Campground.create(
+//   {
+//     name: "Granite Hill",
+//     image: "https://farm4.staticflickr.com/3514/3844623716_427ed81275.jpg",
+//     description: "This is a granite hill. No bathrooms or running water. Bring supplies."
+//   },
+//   function(err, campground){
+//     if(err){
+//       console.log(err);
+//     } else {
+//       console.log("New campground: ");
+//       console.log(campground);
+//     }
+//   });
 
 app.get("/", function(req, res){
   res.render("landing");
@@ -40,7 +40,7 @@ app.get("/campgrounds", function(req, res){
     if(err){
       console.log(err);
     } else {
-      res.render("campgrounds",{campgrounds:AllCampgrounds});
+      res.render("index",{campgrounds:AllCampgrounds});
     }
   });
 });
@@ -49,7 +49,8 @@ app.post("/campgrounds", function(req, res){
   //Get data from form and add to campgrounds array
   var name = req.body.name;
   var image = req.body.image;
-  var newCampground = {name: name, image: image};
+  var desc = req.body.description;
+  var newCampground = {name: name, image: image, description: desc};
   Campground.create(newCampground, function(err, newlyCreated){
     if(err){
       console.log(err);
@@ -64,8 +65,13 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 app.get("/campgrounds/:id", function(req, res){
-  
-  res.send("This is the show page");
+  Campground.findById(req.params.id, function(err, foundCampground){
+    if(err){
+      console.log(err);
+    } else {
+      res.render("show", {campground: foundCampground});
+    }
+  });
 });
 
 app.listen(3000, function(){
