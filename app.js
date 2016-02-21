@@ -10,23 +10,26 @@ app.set("view engine", "ejs");
 // SCHEMA SETUP - Refactor soon
 var campgroundSchema = new mongoose.Schema({
   name: String,
-  image: String
+  image: String,
+  description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-// Campground.create(
-//   {
-//    name: "Salmon Creek",
-//     image: "https://farm4.staticflickr.com/3514/3844623716_427ed81275.jpg"
-//   }, function(err, campground){
-//     if(err){
-//       console.log(err);
-//     } else {
-//       console.log("New campground: ");
-//       console.log(campground);
-//     }
-//   });
+Campground.create(
+  {
+    name: "Granite Hill",
+    image: "https://farm4.staticflickr.com/3514/3844623716_427ed81275.jpg",
+    description: "This is a granite hill. No bathrooms or running water. Bring supplies."
+  },
+  function(err, campground){
+    if(err){
+      console.log(err);
+    } else {
+      console.log("New campground: ");
+      console.log(campground);
+    }
+  });
 
 app.get("/", function(req, res){
   res.render("landing");
@@ -58,6 +61,11 @@ app.post("/campgrounds", function(req, res){
 
 app.get("/campgrounds/new", function(req, res){
   res.render("new.ejs");
+});
+
+app.get("/campgrounds/:id", function(req, res){
+  
+  res.send("This is the show page");
 });
 
 app.listen(3000, function(){
