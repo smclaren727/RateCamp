@@ -5,15 +5,15 @@ var Comment = require("./models/comment");
 var data = [
   {name: "Cloud's Rest",
    image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
-   description: "some words go here."
+   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum dui arcu, vitae maximus sem fringilla quis. Praesent pharetra erat magna, vel facilisis mi vestibulum at. Proin eget felis eu dolor ultrices mollis. Donec volutpat vestibulum placerat. Vestibulum maximus tincidunt ligula, quis tristique massa placerat quis. Proin non risus consequat, bibendum ligula ut, mollis magna."
   },
   {name: "Desert Mesa",
    image: "https://farm4.staticflickr.com/3327/4593576497_835bbd10cd.jpg",
-   description: "some words go here."
+   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum dui arcu, vitae maximus sem fringilla quis. Praesent pharetra erat magna, vel facilisis mi vestibulum at. Proin eget felis eu dolor ultrices mollis. Donec volutpat vestibulum placerat. Vestibulum maximus tincidunt ligula, quis tristique massa placerat quis. Proin non risus consequat, bibendum ligula ut, mollis magna."
   },
   {name: "Canyon Floor",
    image: "https://farm8.staticflickr.com/7068/6780970858_9b0e519daf.jpg",
-   description: "some words go here."
+   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum dui arcu, vitae maximus sem fringilla quis. Praesent pharetra erat magna, vel facilisis mi vestibulum at. Proin eget felis eu dolor ultrices mollis. Donec volutpat vestibulum placerat. Vestibulum maximus tincidunt ligula, quis tristique massa placerat quis. Proin non risus consequat, bibendum ligula ut, mollis magna."
   }
 ];
 
