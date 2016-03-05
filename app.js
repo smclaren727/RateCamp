@@ -18,7 +18,7 @@ mongoose.connect("mongodb://localhost/rate_camp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-seedDB();
+// seedDB();
 
 //Passport Configuration
 app.use(require("express-session")({
