@@ -9,6 +9,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
   //find campground by id
   Campground.findById(req.params.id, function(err, campground){
     if(err){
+      req.flash("error", "Something went wrong.");
       console.log(err);
     } else {
       res.render("comments/new", {campground: campground});
@@ -21,6 +22,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
   //lookup campground using ID
   Campground.findById(req.params.id, function(err, campground){
     if(err){
+      req.flash("error", "Something went wrong.");
       console.log(err);
       res.redirect("/campgrounds");
     } else {

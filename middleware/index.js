@@ -28,6 +28,7 @@ middlewareObj.checkCommentOwnership = function(req, res, rext){
   if(req.isAuthenticated()){
     Comment.findById(req.params.comment_id, function(err, foundComment){
       if(err){
+        req.flash("error", "Comment not found");
         res.redirect("back");
       } else {
         //does current user own the comment

@@ -11,7 +11,7 @@ var express = require("express"),
     User = require("./models/user"),
     seedDB = require("./seeds");
 
-//requireing routes
+//requiring routes
 var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
@@ -45,7 +45,7 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
-app.use("/commentRoutes/:id/comments", commentRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(3000, function(){
   console.log("The RateCamp Server Has Started on Port 3000");
