@@ -48,6 +48,11 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(3000, function(){
-  console.log("The RateCamp Server Has Started on Port 3000");
+// app.listen(3000, function(){
+//   console.log("The RateCamp Server Has Started on Port 3000");
+// });
+
+// Listen ---------------------------------------------------------------------
+app.listen(process.env.PORT, process.env.IP, function(){
+  console.log("Server running.  Better go catch it!");
 });
